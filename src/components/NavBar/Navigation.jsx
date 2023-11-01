@@ -3,10 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Context } from "../../main";
 import { observer } from "mobx-react-lite";
 import useWindowDimensions from "../useWindowDimensions";
-import {
-  INDEX_ROUTE,
-  ACTIVITY_ROUTE,
-} from "../../router/const";
+import { INDEX_ROUTE, ACTIVITY_ROUTE } from "../../router/const";
 import { Nav, Toggle } from "rsuite";
 import Pc from "@rsuite/icons/legacy/Pc";
 import HomeIcon from "@rsuite/icons/legacy/Home";
@@ -67,12 +64,6 @@ const Navigation = () => {
         </Nav.Item>
         <Nav.Item onClick={() => store.setSelectedServer("Hard Bastet")}>
           Hard Bastet
-        </Nav.Item>
-        <Nav.Item onClick={() => store.setSelectedServer("Survival")}>
-          Survival
-        </Nav.Item>
-        <Nav.Item onClick={() => store.setSelectedServer("SkyBlockRPG")}>
-          SkyBlockRPG
         </Nav.Item>
       </Nav.Menu>
       <Nav.Item
