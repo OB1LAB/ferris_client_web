@@ -65,6 +65,18 @@ const Navigation = () => {
         <Nav.Item onClick={() => store.setSelectedServer("Hard Bastet")}>
           Hard Bastet
         </Nav.Item>
+        <Nav.Item onClick={() => store.setSelectedServer("LazorCraft")}>
+          LazorCraft
+        </Nav.Item>
+        <Nav.Item onClick={() => store.setSelectedServer("Pixelmon №1")}>
+          Pixelmon №1
+        </Nav.Item>
+        <Nav.Item onClick={() => store.setSelectedServer("Pixelmon №2")}>
+          Pixelmon №2
+        </Nav.Item>
+        <Nav.Item onClick={() => store.setSelectedServer("Pixelmon №3")}>
+          Pixelmon №3
+        </Nav.Item>
       </Nav.Menu>
       <Nav.Item
         as={Toggle}
