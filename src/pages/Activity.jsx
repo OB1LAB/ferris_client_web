@@ -17,12 +17,17 @@ function getMondayOfCurrentWeek() {
 }
 
 function dateToString(date) {
-  let daysSplit = date.toISOString().split("T")[0].split("-");
-  return `${daysSplit[2]}-${daysSplit[1]}-${daysSplit[0]}`;
+  let newDate = "";
+  if (date.getDate() < 10) {
+    newDate = `0${date.getDate()}`;
+  } else {
+    newDate = date.getDate();
+  }
+  return `${newDate}-${date.getMonth() + 1}-${date.getFullYear()}`;
 }
 
 function dateTimezone(date) {
-  return new Date(date.toLocaleString("en-US", {timeZone: "Europe/Moscow"}));   
+  return new Date(date.toLocaleString("en-US", { timeZone: "Europe/Moscow" }));
 }
 
 const Activity = () => {
@@ -40,13 +45,13 @@ const Activity = () => {
       setLoading(true);
       if (store.staff[store.selected_server]) {
         const activity = await ActivityService.getActivity(
-          dateToString(date1),
-          dateToString(date2),
+          dateToString(dateTimezone(date1)),
+          dateToString(dateTimezone(date2)),
           store.staff[store.selected_server],
           store.selected_server
         );
         if ("error" in activity.data) {
-          setData(activity.data.players)
+          setData(activity.data.players);
           toaster.push(
             <Notification type="error" header="Ошибка" closable>
               {activity.data.error}
