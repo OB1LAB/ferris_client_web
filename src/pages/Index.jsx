@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import Pc from "@rsuite/icons/legacy/Pc";
 import Commenting from "@rsuite/icons/legacy/Commenting";
 import Search from "@rsuite/icons/legacy/Search";
-import InfoService from "../services/InfoService";
+import InfoService from '../services/InfoService'
 
 const Index = () => {
   const { store } = useContext(Context);
