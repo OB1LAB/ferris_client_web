@@ -7,27 +7,14 @@ import ActivityService from "../services/ActivityService";
 import { Context } from "../main";
 import BigTablePayerActivityMobile from "../components/Activity/BigTablePayerActivityMobile";
 import { useToaster, Notification } from "rsuite";
+import moment from "moment";
 
 function getMondayOfCurrentWeek() {
-  const date = dateTimezone(new Date());
+  const date = moment(new Date()).toDate();
   const day = date.getDay();
   const diff = date.getDate() - day + (day === 0 ? -6 : 1);
   date.setDate(diff);
   return date;
-}
-
-function dateToString(date) {
-  let newDate = "";
-  if (date.getDate() < 10) {
-    newDate = `0${date.getDate()}`;
-  } else {
-    newDate = date.getDate();
-  }
-  return `${newDate}-${date.getMonth() + 1}-${date.getFullYear()}`;
-}
-
-function dateTimezone(date) {
-  return new Date(date.toLocaleString("en-US", { timeZone: "Europe/Moscow" }));
 }
 
 const Activity = () => {
@@ -36,7 +23,7 @@ const Activity = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [date1, setDate1] = useState(getMondayOfCurrentWeek());
-  const [date2, setDate2] = useState(dateTimezone(new Date()));
+  const [date2, setDate2] = useState(moment(new Date()).toDate());
   const [modalAddPlayer, setModalAddPlayer] = useState(false);
   const { width } = useWindowDimensions();
 
@@ -45,8 +32,8 @@ const Activity = () => {
       setLoading(true);
       if (store.staff[store.selected_server]) {
         const activity = await ActivityService.getActivity(
-          dateToString(dateTimezone(date1)),
-          dateToString(dateTimezone(date2)),
+          moment(date1).format("DD-MM-YYYY"),
+          moment(date2).format("DD-MM-YYYY"),
           store.staff[store.selected_server],
           store.selected_server
         );
