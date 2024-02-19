@@ -52,6 +52,14 @@ const Navigation = () => {
             HTC Elara
           </Nav.Item>
         </Nav.Menu>
+        <Nav.Menu title={"TM 1.7.10"}>
+          <Nav.Item active={store.selected_server === "TM Phoenix"} onClick={() => store.setSelectedServer("TM Phoenix")}>
+            TM Phoenix
+          </Nav.Item>
+          <Nav.Item active={store.selected_server === "TM Orion"} onClick={() => store.setSelectedServer("TM Orion")}>
+            TM Orion
+          </Nav.Item>
+        </Nav.Menu>
         <Nav.Menu title={"HTC 1.12"}>
           <Nav.Item active={store.selected_server === "HTC 1.12 #1"} onClick={() => store.setSelectedServer("HTC 1.12 #1")}>
             HTC 1.12 #1
