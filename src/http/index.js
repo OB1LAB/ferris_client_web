@@ -1,5 +1,5 @@
 import axios from "axios";
-export const API_URL = `https://ob1lab.site/api`;
+export const API_URL = `https://ferris.ob1lab.xyz/api`;
 
 const $api = axios.create({
   baseURL: API_URL,
