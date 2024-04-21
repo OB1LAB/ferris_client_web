@@ -125,6 +125,12 @@ const Navigation = () => {
             Pixelmon №3
           </Nav.Item>
         </Nav.Menu>
+        <Nav.Item active={store.selected_server === "tmsb"} onClick={() => store.setSelectedServer("tmsb")}>
+          TMSB 1.7.10
+        </Nav.Item>
+        <Nav.Item active={store.selected_server === "htcC"} onClick={() => store.setSelectedServer("htcC")}>
+          HitechClassic
+        </Nav.Item>
         <Nav.Item active={store.selected_server === "GalaxyCraft"} onClick={() => store.setSelectedServer("GalaxyCraft")}>
           GalaxyCraft
         </Nav.Item>
